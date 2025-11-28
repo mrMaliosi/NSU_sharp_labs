@@ -1,0 +1,44 @@
+# Visual Studio / Rider / VSCode
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build Folders
+bin/
+obj/
+out/
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# NuGet
+*.nupkg
+packages/
+*.snupkg
+.nuget/
+
+# Logs
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# JetBrains
+*.DotSettings.user
+
+# Test results
+TestResults/
+*.trx
+
+# Temporary files
+*.tmp
+*.cache
+
+# Ignore configs only if generated, otherwise keep conf/
+# conf/*.json (если конфиги вручную создаются, то не игнорировать!)

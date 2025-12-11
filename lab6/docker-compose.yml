@@ -1,0 +1,125 @@
+version: '3.8'
+
+services:
+  table-service:
+    build:
+      context: .
+      dockerfile: TableService/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - PHILOSOPHERS_COUNT=5
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - philosophers-network
+
+  philosopher-plato:
+    build: 
+      context: .
+      dockerfile: PhilosopherService/Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:8081
+      - PHILOSOPHER_NAME=Платон
+      - PHILOSOPHER_ID=philosopher-1
+      - LEFT_FORK_ID=1
+      - RIGHT_FORK_ID=2
+      - TABLE_SERVICE_URL=http://table-service:8080
+      - SIMULATION_DURATION_MINUTES=5
+    depends_on:
+      table-service:
+        condition: service_healthy
+    ports:
+      - "8081:8081"
+    networks:
+      - philosophers-network
+
+  philosopher-aristotle:
+    build: 
+      context: .
+      dockerfile: PhilosopherService/Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:8082
+      - PHILOSOPHER_NAME=Арис Савич
+      - PHILOSOPHER_ID=philosopher-2
+      - LEFT_FORK_ID=2
+      - RIGHT_FORK_ID=3
+      - TABLE_SERVICE_URL=http://table-service:8080
+      - SIMULATION_DURATION_MINUTES=5
+    depends_on:
+      table-service:
+        condition: service_healthy
+    ports:
+      - "8082:8082"
+    networks:
+      - philosophers-network
+
+  philosopher-kant:
+    build: 
+      context: .
+      dockerfile: PhilosopherService/Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:8083
+      - PHILOSOPHER_NAME=Аристотель
+      - PHILOSOPHER_ID=philosopher-3
+      - LEFT_FORK_ID=3
+      - RIGHT_FORK_ID=4
+      - TABLE_SERVICE_URL=http://table-service:8080
+      - SIMULATION_DURATION_MINUTES=5
+    depends_on:
+      table-service:
+        condition: service_healthy
+    ports:
+      - "8083:8083"
+    networks:
+      - philosophers-network
+
+  philosopher-socrates:
+    build: 
+      context: .
+      dockerfile: PhilosopherService/Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:8084
+      - PHILOSOPHER_NAME=Кант
+      - PHILOSOPHER_ID=philosopher-4
+      - LEFT_FORK_ID=4
+      - RIGHT_FORK_ID=5
+      - TABLE_SERVICE_URL=http://table-service:8080
+      - SIMULATION_DURATION_MINUTES=5
+    depends_on:
+      table-service:
+        condition: service_healthy
+    ports:
+      - "8084:8084"
+    networks:
+      - philosophers-network
+
+  philosopher-nietzsche:
+    build: 
+      context: .
+      dockerfile: PhilosopherService/Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:8085
+      - PHILOSOPHER_NAME=Сократ
+      - PHILOSOPHER_ID=philosopher-5
+      - LEFT_FORK_ID=5
+      - RIGHT_FORK_ID=1
+      - TABLE_SERVICE_URL=http://table-service:8080
+      - SIMULATION_DURATION_MINUTES=5
+    depends_on:
+      table-service:
+        condition: service_healthy
+    ports:
+      - "8085:8085"
+    networks:
+      - philosophers-network
+
+networks:
+  philosophers-network:
+    driver: bridge
+

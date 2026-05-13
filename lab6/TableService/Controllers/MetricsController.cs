@@ -11,15 +11,18 @@ public class MetricsController : ControllerBase
 {
     private readonly IMetricsCalculator _metricsCalculator;
     private readonly IForkManager _forkManager;
+    private readonly TableStateService _tableStateService;
     private readonly ILogger<MetricsController> _logger;
 
     public MetricsController(
         IMetricsCalculator metricsCalculator,
         IForkManager forkManager,
+        TableStateService tableStateService,
         ILogger<MetricsController> logger)
     {
         _metricsCalculator = metricsCalculator;
         _forkManager = forkManager;
+        _tableStateService = tableStateService;
         _logger = logger;
     }
 

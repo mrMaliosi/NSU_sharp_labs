@@ -1,0 +1,34 @@
+table-service-1          | ========== FINAL STATISTICS ==========
+table-service-1          | Total Philosophers: 5
+table-service-1          | ----------------------------------------
+table-service-1          | Philosopher: Платон (philosopher-1)
+table-service-1          |   Meals Eaten: 49
+table-service-1          |   Total Thinking Time: 231117ms
+table-service-1          |   Total Eating Time: 59621ms
+table-service-1          |   Duration: 302.74 seconds
+table-service-1          | ----------------------------------------
+table-service-1          | Philosopher: Аристотель (philosopher-2)
+table-service-1          |   Meals Eaten: 63
+table-service-1          |   Total Thinking Time: 209224ms
+table-service-1          |   Total Eating Time: 79424ms
+table-service-1          |   Duration: 300.50 seconds
+table-service-1          | ----------------------------------------
+table-service-1          | Philosopher: Сократ (philosopher-3)
+table-service-1          |   Meals Eaten: 52
+table-service-1          |   Total Thinking Time: 227567ms
+table-service-1          |   Total Eating Time: 61953ms
+table-service-1          |   Duration: 301.52 seconds
+table-service-1          | ----------------------------------------
+table-service-1          | Philosopher: Декарт (philosopher-4)
+table-service-1          |   Meals Eaten: 60
+table-service-1          |   Total Thinking Time: 209921ms
+table-service-1          |   Total Eating Time: 78838ms
+table-service-1          |   Duration: 300.55 seconds
+table-service-1          | ----------------------------------------
+table-service-1          | Philosopher: Кант (philosopher-5)
+table-service-1          |   Meals Eaten: 54
+table-service-1          |   Total Thinking Time: 221662ms
+table-service-1          |   Total Eating Time: 66827ms
+table-service-1          |   Duration: 300.89 seconds
+table-service-1          | ----------------------------------------
+table-service-1          | ========================================

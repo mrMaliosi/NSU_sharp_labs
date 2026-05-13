@@ -1,0 +1,12 @@
+{
+    "SimulationSteps": 1000,
+    "TotalPhilosophers": 5,
+    "TotalForks": 5,
+    "Strategy": "cord",
+    "PhilosopherNames": ["Платон", "Арис Савич", "Аристотель", "Кант", "Сократ"],
+    "DefaultContext": {
+      "ThinkingTime": { "From": 3, "To": 10 },
+      "EatingTime": { "From": 4, "To": 5 },
+      "ForkPickTime": 2
+    }
+}
